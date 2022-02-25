@@ -1,0 +1,3 @@
+//  RecipesModelResponse.swift
+
+import Foundation
