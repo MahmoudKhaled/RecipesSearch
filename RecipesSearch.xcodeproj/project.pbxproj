@@ -31,6 +31,12 @@
 		5758AD1927C9234800B68B5E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD1827C9234800B68B5E /* BaseViewController.swift */; };
 		5758AD1C27C928A100B68B5E /* BaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD1B27C928A100B68B5E /* BaseProtocols.swift */; };
 		5758AD1E27C928D900B68B5E /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD1D27C928D900B68B5E /* BaseRouter.swift */; };
+		5758AD2727C92E2500B68B5E /* RecipesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD2127C92E2500B68B5E /* RecipesPresenter.swift */; };
+		5758AD2827C92E2500B68B5E /* RecipesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD2227C92E2500B68B5E /* RecipesRouter.swift */; };
+		5758AD2927C92E2500B68B5E /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD2327C92E2500B68B5E /* RecipesViewController.swift */; };
+		5758AD2A27C92E2500B68B5E /* RecipesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD2427C92E2500B68B5E /* RecipesProtocols.swift */; };
+		5758AD2B27C92E2500B68B5E /* RecipesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD2527C92E2500B68B5E /* RecipesInteractor.swift */; };
+		5758AD2C27C92E2500B68B5E /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5758AD2627C92E2500B68B5E /* RecipesView.swift */; };
 		FEC372D30866F6DEB5A60387 /* Pods_RecipesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C96DD497BAFF6F7D6FA27B1 /* Pods_RecipesSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +68,12 @@
 		5758AD1827C9234800B68B5E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5758AD1B27C928A100B68B5E /* BaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocols.swift; sourceTree = "<group>"; };
 		5758AD1D27C928D900B68B5E /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		5758AD2127C92E2500B68B5E /* RecipesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesPresenter.swift; sourceTree = "<group>"; };
+		5758AD2227C92E2500B68B5E /* RecipesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRouter.swift; sourceTree = "<group>"; };
+		5758AD2327C92E2500B68B5E /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
+		5758AD2427C92E2500B68B5E /* RecipesProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProtocols.swift; sourceTree = "<group>"; };
+		5758AD2527C92E2500B68B5E /* RecipesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesInteractor.swift; sourceTree = "<group>"; };
+		5758AD2627C92E2500B68B5E /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		C78772831B86B89D9C3D2565 /* Pods-RecipesSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesSearch.release.xcconfig"; path = "Target Support Files/Pods-RecipesSearch/Pods-RecipesSearch.release.xcconfig"; sourceTree = "<group>"; };
 		DC48F795CA664C71D564B095 /* Pods-RecipesSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesSearch.debug.xcconfig"; path = "Target Support Files/Pods-RecipesSearch/Pods-RecipesSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +210,7 @@
 		5758ACF127C9179800B68B5E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5758AD2027C92DBC00B68B5E /* Recipes */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -246,6 +259,19 @@
 			children = (
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		5758AD2027C92DBC00B68B5E /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				5758AD2427C92E2500B68B5E /* RecipesProtocols.swift */,
+				5758AD2327C92E2500B68B5E /* RecipesViewController.swift */,
+				5758AD2127C92E2500B68B5E /* RecipesPresenter.swift */,
+				5758AD2227C92E2500B68B5E /* RecipesRouter.swift */,
+				5758AD2527C92E2500B68B5E /* RecipesInteractor.swift */,
+				5758AD2627C92E2500B68B5E /* RecipesView.swift */,
+			);
+			path = Recipes;
 			sourceTree = "<group>";
 		};
 		5F0697380A1CC5DE85984741 /* Pods */ = {
@@ -376,6 +402,7 @@
 				5758AD1427C9212300B68B5E /* Messsage.swift in Sources */,
 				5758ACD627C9163700B68B5E /* AppDelegate.swift in Sources */,
 				5758AD1127C920F100B68B5E /* UIViewControllerExtension.swift in Sources */,
+				5758AD2B27C92E2500B68B5E /* RecipesInteractor.swift in Sources */,
 				5758AD1927C9234800B68B5E /* BaseViewController.swift in Sources */,
 				5758AD0927C91E3A00B68B5E /* BodyParameters.swift in Sources */,
 				5758AD0127C91D1000B68B5E /* NetworkError.swift in Sources */,
@@ -384,14 +411,19 @@
 				5758AD0727C91D1000B68B5E /* RequestExtension.swift in Sources */,
 				5758AD1727C9233600B68B5E /* IndicatorType.swift in Sources */,
 				5758AD1527C9212300B68B5E /* StoryBoardTypes.swift in Sources */,
+				5758AD2727C92E2500B68B5E /* RecipesPresenter.swift in Sources */,
 				5758AD0327C91D1000B68B5E /* NetworkMiddleware.swift in Sources */,
 				5758AD0227C91D1000B68B5E /* Promise.swift in Sources */,
+				5758AD2C27C92E2500B68B5E /* RecipesView.swift in Sources */,
 				5758AD1C27C928A100B68B5E /* BaseProtocols.swift in Sources */,
+				5758AD2927C92E2500B68B5E /* RecipesViewController.swift in Sources */,
 				5758AD0627C91D1000B68B5E /* FutureDecoded.swift in Sources */,
 				5758AD1E27C928D900B68B5E /* BaseRouter.swift in Sources */,
 				5758AD0027C91D1000B68B5E /* URLRequestConvertible.swift in Sources */,
 				5758ACF427C91C3F00B68B5E /* Constants.swift in Sources */,
 				5758AD0D27C91E4F00B68B5E /* MainNavigationBar.swift in Sources */,
+				5758AD2A27C92E2500B68B5E /* RecipesProtocols.swift in Sources */,
+				5758AD2827C92E2500B68B5E /* RecipesRouter.swift in Sources */,
 				5758AD0427C91D1000B68B5E /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
