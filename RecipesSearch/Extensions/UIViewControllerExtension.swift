@@ -15,7 +15,7 @@ public extension UIViewController
         return (storyboard.instantiateViewController(withIdentifier: identifier) as? T)!
     }
     
-    private class func instance(_ storyboard: StoryBoardTypes = .main) -> Self
+    class func instance(_ storyboard: StoryBoardTypes = .main) -> Self
     {
         let stb = UIStoryboard(name: storyboard.rawValue, bundle: nil)
         return instate(stb, identifier: nameOfVC)
