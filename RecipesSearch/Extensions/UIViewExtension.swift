@@ -1,7 +1,7 @@
 //  UIViewExtension.swift
 
 
-import Foundation
+import UIKit
 import MBProgressHUD
 
 //MARK:- Indicator methods
@@ -32,4 +32,24 @@ extension UIView
     {
         return .init(nibName: identifier, bundle: nil)
     }
+}
+
+extension UIView {
+    
+    @IBInspectable var borderWidth: CGFloat {
+        set {
+            layer.borderWidth = newValue
+        } get {
+            return layer.borderWidth
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor {
+        set {
+            layer.borderColor = newValue.cgColor
+        } get {
+            return UIColor(cgColor: layer.borderColor ?? UIColor.gray.cgColor)
+        }
+    }
+    
 }

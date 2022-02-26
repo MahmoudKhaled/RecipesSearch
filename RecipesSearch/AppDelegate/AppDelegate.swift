@@ -2,6 +2,7 @@
 //  AppDelegate.swift
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setWindow()
+        setupKeyboard()
+        startApp()
         return true
     }
     
@@ -23,8 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
     
+    private func setupKeyboard() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+    }
+    
     func setRootViewController(_ viewController: UIViewController, animated: Bool) {
-        window?.rootViewController = viewController
+        window?.rootViewController = MainNavigationController(rootViewController: viewController)
+    }
+    
+    func startApp() {
+        setRootViewController(RecipesRouter.createModule(), animated: false)
     }
 
 }
