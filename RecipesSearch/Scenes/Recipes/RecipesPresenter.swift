@@ -38,7 +38,7 @@ extension RecipesPresenter {
     
     func didSelectHealthFilterItem(at indexPath: IndexPath) {
         updateApiParameters(at: .healthType(healthTypes[indexPath.item]))
-        guard isValidSeachKey() else { return }
+        guard isValidSeachWord() else { return }
         recipes.removeAll()
         view?.reloadReciesData()
         prformSearchRequest()
@@ -48,9 +48,8 @@ extension RecipesPresenter {
 //MARK: implementation of RecipesPresenterProtocol
 extension RecipesPresenter {
     
-    func searchButtonTapped(with text: String) {
-        updateApiParameters(at: .searchKey(text))
-        guard isValidSeachKey() else { return }
+    func searchButtonTapped() {
+        guard isValidSeachWord() else { return }
         prformSearchRequest()
     }
     
@@ -67,7 +66,7 @@ extension RecipesPresenter {
         router.showAlert(with: Messages.wrongLetter.message)
     }
     
-    private func isValidSeachKey() -> Bool {
+    private func isValidSeachWord() -> Bool {
         guard !apiParameters.searchKey.isEmpty else {
             router.showAlert(with: Messages.emptySearchError.message)
             return false

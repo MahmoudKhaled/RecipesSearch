@@ -87,17 +87,22 @@ extension RecipesViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.searchButtonTapped(with: searchBar.text ?? "")
+        presenter.searchButtonTapped()
         self.view.endEditing(true)
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        debugPrint(searchText)
+        presenter.updateApiParameters(at: .searchKey(searchText))
+    }
+    
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text.rangeOfCharacter(from: NSCharacterSet.letters) != nil {
+        
+        if text.rangeOfCharacter(from: .letters) != nil {
             return true
         } else if text.rangeOfCharacter(from: NSCharacterSet.whitespacesAndNewlines) != nil {
             return true
-        }
-        else {
+        } else {
             presenter.wrongKeyBoardLetterTapped()
             return false
         }

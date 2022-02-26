@@ -15,7 +15,7 @@ protocol RecipesPresenterProtocol: AnyObject {
     func didSelectHealthFilterItem(at indexPath: IndexPath)
     func didSelectRecipeItem(at indexPath: IndexPath)
     func updateApiParameters(at type: RecipeParametersType)
-    func searchButtonTapped(with text: String)
+    func searchButtonTapped()
     func wrongKeyBoardLetterTapped()
 }
 
