@@ -47,6 +47,13 @@ extension RecipesPresenter {
 
 //MARK: implementation of RecipesPresenterProtocol
 extension RecipesPresenter {
+    
+    func searchButtonTapped(with text: String) {
+        updateApiParameters(at: .searchKey(text))
+        guard isValidSeachKey() else { return }
+        prformSearchRequest()
+    }
+    
     func updateApiParameters(at type: RecipeParametersType) {
         switch type {
         case .searchKey(let searhKey):
@@ -54,11 +61,6 @@ extension RecipesPresenter {
         case .healthType(let type):
             apiParameters.helathType = type
         }
-    }
-    
-    func searchButtonTapped() {
-        guard isValidSeachKey() else { return }
-        prformSearchRequest()
     }
     
     func wrongKeyBoardLetterTapped() {
@@ -87,6 +89,7 @@ extension RecipesPresenter {
 extension RecipesPresenter: RecipesInteractorOutputProtocol {
     func didFetchRecipesData(_ model: RecipesDataModel) {
         view?.hideActivityIndicator()
+        print(model.totalPages)
         recipes.append(contentsOf: model.recipes)
         createHealthFilteredType()
         view?.reloadHealthFilterData()

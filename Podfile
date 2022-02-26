@@ -9,5 +9,6 @@ target 'RecipesSearch' do
   pod 'Alamofire'
   pod 'IQKeyboardManagerSwift'
   pod 'MBProgressHUD'
+  pod 'Kingfisher'
 
 end

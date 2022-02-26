@@ -16,7 +16,10 @@ class RecipeTableViewCell: UITableViewCell, ConfigurableCell {
     }
     
     func configure(model: RecipeModel) {
-        
+        recipeImageView.load(imageUrl: model.image)
+        recipeTitleLabel.text = model.title
+        recipeSourceLabel.text = model.source
+        recipehealthLabels.text = model.healthLabelTitels
     }
     
     

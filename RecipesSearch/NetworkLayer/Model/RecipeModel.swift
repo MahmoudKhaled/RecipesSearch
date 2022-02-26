@@ -9,7 +9,7 @@ struct RecipeResponse: Codable {
     let source: String?
     let url: String?
     let shareAs: String?
-    let yield: Int?
+    let yield: Double?
     let dietLabels: [String]?
     let healthLabels: [String]?
     let cautions: [String]?
@@ -25,13 +25,13 @@ struct RecipeResponse: Codable {
 
 struct RecipeModel {
     let uri: String
-    let label: String
+    let title: String
     let image: String?
     let images: ImagesModel
     let source: String
     let url: String
     let shareAs: String
-    let yield: Int
+    let yield: Double
     let dietLabels: [String]
     let healthLabels: [String]
     let cautions: [String]
@@ -43,16 +43,17 @@ struct RecipeModel {
     let mealType: [String]
     let dishType: [String]
     let digest: [DigestModel]
+    let healthLabelTitels: String
     
     init(_ response: RecipeResponse?) {
         uri = response?.uri ?? ""
-        label = response?.label ?? ""
+        title = response?.label ?? ""
         image = response?.image
         images = ImagesModel(response?.images)
         source = response?.source ?? ""
         url = response?.url ?? ""
         shareAs = response?.shareAs ?? ""
-        yield = response?.yield ?? 0
+        yield = response?.yield ?? 0.0
         dietLabels = response?.dietLabels ?? []
         healthLabels = response?.healthLabels ?? []
         cautions = response?.cautions ?? []
@@ -65,6 +66,11 @@ struct RecipeModel {
         mealType = response?.mealType ?? []
         dishType = response?.dishType ?? []
         digest = response?.digest?.map({DigestModel($0)}) ?? []
+//        healthLabelTitels = healthLabels.reduce(into: "", { result, value in
+//            result = result + value
+//        })
+//
+        healthLabelTitels = healthLabels.joined(separator: ",")
     }
     
     

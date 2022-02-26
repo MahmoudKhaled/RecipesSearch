@@ -59,6 +59,8 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
         recipesTableView.register(RecipeTableViewCell.nib, forCellReuseIdentifier: RecipeTableViewCell.identifier)
         recipesTableView.dataSource = self
         recipesTableView.delegate = self
+        recipesTableView.tableFooterView = UIView()
+        recipesTableView.rowHeight = UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,13 +86,8 @@ extension RecipesViewController: UISearchBarDelegate {
         searchBar.delegate = self
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print(searchBar.text ?? "")
-        presenter.updateApiParameters(at: .searchKey(searchBar.text ?? ""))
-    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.searchButtonTapped()
+        presenter.searchButtonTapped(with: searchBar.text ?? "")
         self.view.endEditing(true)
     }
     

@@ -25,7 +25,7 @@ enum Messages {
         case .emptySearchError:
             return NSLocalizedString("Please enter your search word", comment: "")
         case .wrongLetter:
-            return NSLocalizedString("Soory Only english letters available, No special letters and numbers", comment: "")
+            return NSLocalizedString("Sorry Only english letters available, No special letters and numbers", comment: "")
         }
     }
 }
