@@ -16,6 +16,7 @@ class RecipesRouter: BaseRouter, RecipesRouterProtocol {
         interactor.presenter = presenter
         router.viewController = view
         view.presenter = presenter
+        view.title = ScreenTitles.recipesSearch.title
         return view
     }
     

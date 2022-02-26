@@ -12,6 +12,7 @@ class RecipeDetailsRouter: BaseRouter, RecipeDetailsRouterProtocol {
         interactor.presenter = presenter
         router.viewController = view
         view.presenter = presenter
+        view.title = ScreenTitles.recipeDetails.title
         return view
     }
     

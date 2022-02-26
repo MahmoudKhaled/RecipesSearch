@@ -60,6 +60,7 @@
 		57F1090A27CADF2100F8D0AA /* RecipeDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1090427CADF2100F8D0AA /* RecipeDetailsInteractor.swift */; };
 		57F1090F27CAEAE400F8D0AA /* IngredientsUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1090D27CAEAE400F8D0AA /* IngredientsUITableViewCell.swift */; };
 		57F1091027CAEAE400F8D0AA /* IngredientsUITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F1090E27CAEAE400F8D0AA /* IngredientsUITableViewCell.xib */; };
+		57F1091227CAF16300F8D0AA /* ScreenTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1091127CAF16300F8D0AA /* ScreenTitles.swift */; };
 		FEC372D30866F6DEB5A60387 /* Pods_RecipesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C96DD497BAFF6F7D6FA27B1 /* Pods_RecipesSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		57F1090427CADF2100F8D0AA /* RecipeDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsInteractor.swift; sourceTree = "<group>"; };
 		57F1090D27CAEAE400F8D0AA /* IngredientsUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsUITableViewCell.swift; sourceTree = "<group>"; };
 		57F1090E27CAEAE400F8D0AA /* IngredientsUITableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientsUITableViewCell.xib; sourceTree = "<group>"; };
+		57F1091127CAF16300F8D0AA /* ScreenTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTitles.swift; sourceTree = "<group>"; };
 		C78772831B86B89D9C3D2565 /* Pods-RecipesSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesSearch.release.xcconfig"; path = "Target Support Files/Pods-RecipesSearch/Pods-RecipesSearch.release.xcconfig"; sourceTree = "<group>"; };
 		DC48F795CA664C71D564B095 /* Pods-RecipesSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesSearch.debug.xcconfig"; path = "Target Support Files/Pods-RecipesSearch/Pods-RecipesSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,6 +232,7 @@
 				5758AD1227C9212300B68B5E /* Messsage.swift */,
 				5758AD1327C9212300B68B5E /* StoryBoardTypes.swift */,
 				5758AD5027CA71A900B68B5E /* HealthFilterType.swift */,
+				57F1091127CAF16300F8D0AA /* ScreenTitles.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				5758AD3A27C9A95400B68B5E /* RecipesWorker.swift in Sources */,
 				5758AD1527C9212300B68B5E /* StoryBoardTypes.swift in Sources */,
 				5758AD2727C92E2500B68B5E /* RecipesPresenter.swift in Sources */,
+				57F1091227CAF16300F8D0AA /* ScreenTitles.swift in Sources */,
 				5758AD0327C91D1000B68B5E /* NetworkMiddleware.swift in Sources */,
 				5758AD0227C91D1000B68B5E /* Promise.swift in Sources */,
 				5758AD1C27C928A100B68B5E /* BaseProtocols.swift in Sources */,
