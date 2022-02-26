@@ -2,6 +2,10 @@
 
 import UIKit
 
+enum RecipesDestination {
+    case recipeDetails(RecipeModel)
+}
+
 class RecipesRouter: BaseRouter, RecipesRouterProtocol {
     
     static func createModule() -> UIViewController {
@@ -13,6 +17,13 @@ class RecipesRouter: BaseRouter, RecipesRouterProtocol {
         router.viewController = view
         view.presenter = presenter
         return view
+    }
+    
+    func navigate(to destination: RecipesDestination) {
+        switch destination {
+        case .recipeDetails(let recipeModel):
+            viewController?.push(RecipeDetailsRouter.createModule(recipe: recipeModel))
+        }
     }
     
 }

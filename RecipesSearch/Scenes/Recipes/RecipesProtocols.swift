@@ -3,7 +3,7 @@
 import Foundation
 
 protocol RecipesRouterProtocol: BaseRouterProtocol {
-    
+    func navigate(to destination: RecipesDestination)
 }
 
 protocol RecipesPresenterProtocol: AnyObject {
