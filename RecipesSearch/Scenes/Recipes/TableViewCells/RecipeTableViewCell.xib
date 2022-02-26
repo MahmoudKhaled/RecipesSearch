@@ -21,12 +21,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GY6-8u-PeY">
                         <rect key="frame" x="0.0" y="10" width="428" height="196"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yek-ew-Pch">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yek-ew-Pch">
                                 <rect key="frame" x="10" y="10" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="bPo-yo-8VV"/>
                                     <constraint firstAttribute="width" constant="100" id="wCp-rA-zlB"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Jm5-CQ-zKe">
                                 <rect key="frame" x="120" y="10" width="298" height="144.5"/>
@@ -54,10 +62,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Jm5-CQ-zKe" firstAttribute="top" secondItem="Yek-ew-Pch" secondAttribute="top" id="Qav-2o-XiY"/>
                             <constraint firstItem="Jm5-CQ-zKe" firstAttribute="leading" secondItem="Yek-ew-Pch" secondAttribute="trailing" constant="10" id="UQu-gy-T2n"/>
+                            <constraint firstItem="Yek-ew-Pch" firstAttribute="top" secondItem="GY6-8u-PeY" secondAttribute="top" constant="10" id="Xap-Cr-93V"/>
                             <constraint firstAttribute="trailing" secondItem="Jm5-CQ-zKe" secondAttribute="trailing" constant="10" id="YPi-8Y-QlP"/>
-                            <constraint firstItem="Yek-ew-Pch" firstAttribute="top" secondItem="GY6-8u-PeY" secondAttribute="top" constant="10" id="bk8-Vc-7CB"/>
-                            <constraint firstItem="Jm5-CQ-zKe" firstAttribute="top" secondItem="Yek-ew-Pch" secondAttribute="top" id="osD-29-w7v"/>
                             <constraint firstItem="Yek-ew-Pch" firstAttribute="leading" secondItem="GY6-8u-PeY" secondAttribute="leading" constant="10" id="p2O-Y3-fOy"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jm5-CQ-zKe" secondAttribute="bottom" constant="10" id="u2j-yw-HF7"/>
                         </constraints>
