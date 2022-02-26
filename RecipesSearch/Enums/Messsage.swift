@@ -11,6 +11,8 @@ enum Messages {
     case appName
     case ok
     case cancel
+    case emptySearchError
+    case wrongLetter
     
     var message: String {
         switch self {
@@ -20,6 +22,10 @@ enum Messages {
             return NSLocalizedString("Ok", comment: "")
         case .cancel:
             return NSLocalizedString("Cancel", comment: "")
+        case .emptySearchError:
+            return NSLocalizedString("Please enter your search word", comment: "")
+        case .wrongLetter:
+            return NSLocalizedString("Soory Only english letters available, No special letters and numbers", comment: "")
         }
     }
 }
