@@ -15,7 +15,8 @@ protocol RecipesInteractorInputProtocol: AnyObject {
 }
 
 protocol RecipesInteractorOutputProtocol: AnyObject {
-    
+    func didFetchRecipesData(_ model: RecipesDataModel)
+    func handleFetchedError(with error: Error)
 }
 
 protocol RecipesViewProtocol: HasActivityIndicator {

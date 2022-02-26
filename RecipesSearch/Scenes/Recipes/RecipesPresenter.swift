@@ -2,7 +2,7 @@
 
 import Foundation
 
-class RecipesPresenter: RecipesPresenterProtocol, RecipesInteractorOutputProtocol {
+class RecipesPresenter: RecipesPresenterProtocol {
     
     weak var view: RecipesViewProtocol?
     private let interactor: RecipesInteractorInputProtocol
@@ -13,5 +13,15 @@ class RecipesPresenter: RecipesPresenterProtocol, RecipesInteractorOutputProtoco
         self.interactor = interactor
         self.router = router
     }
+}
+
+extension RecipesPresenter: RecipesInteractorOutputProtocol {
+    func didFetchRecipesData(_ model: RecipesDataModel) {
+        view?.hideActivityIndicator()
+    }
     
+    func handleFetchedError(with error: Error) {
+        view?.hideActivityIndicator()
+        router.showAlert(with: error.localizedDescription)
+    }
 }
