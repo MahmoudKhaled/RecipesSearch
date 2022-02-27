@@ -97,14 +97,16 @@ extension RecipesViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        if text.rangeOfCharacter(from: .letters) != nil {
-            return true
-        } else if text.rangeOfCharacter(from: NSCharacterSet.whitespacesAndNewlines) != nil {
-            return true
-        } else {
+        do {
+            let regex = try NSRegularExpression(pattern: #"^[a-zA-Z ]{0,}$"#, options: [])
+            if regex.firstMatch(in: text, options: [], range: NSMakeRange(0, text.count)) != nil {
+                return true
+            }
             presenter.wrongKeyBoardLetterTapped()
             return false
+        } catch {
+            presenter.wrongKeyBoardLetterTapped()
         }
+        return true
     }
 }
