@@ -106,7 +106,6 @@ extension RecipesPresenter {
 extension RecipesPresenter: RecipesInteractorOutputProtocol {
     func didFetchRecipesData(_ model: RecipesDataModel) {
         view?.hideActivityIndicator()
-        debugPrint(model.toPage, "to" , model.totalPages)
         resultData = model
         recipes = model.recipes
         createHealthFilteredTypeItmes()
@@ -115,7 +114,6 @@ extension RecipesPresenter: RecipesInteractorOutputProtocol {
     
     func didFetchMoreRecipes(_ model: RecipesDataModel) {
         view?.hideActivityIndicator()
-        debugPrint(model.toPage, "to" , model.totalPages)
         resultData = model
         recipes.append(contentsOf: model.recipes)
         view?.reloadReciesData(scrollToTop: false)
