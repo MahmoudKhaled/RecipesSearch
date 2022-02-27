@@ -18,12 +18,15 @@ class RecipesViewController: BaseViewController, RecipesViewProtocol {
         setupTableViewList()
     }
     
-    func reloadReciesData() {
+    func reloadReciesData(scrollToTop: Bool) {
         /**
             Handle empty data by add empty data view for tableView which it main container view for result data.
          */
         recipesTableView.emptyMessage(info: presenter.isEmptyData ? EmptySearchData() : HideEmptyData())
         recipesTableView.reloadData()
+        if scrollToTop, !presenter.isEmptyData {
+            recipesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
     
     func reloadHealthFilterData(at selectedIndex: IndexPath?) {
@@ -85,6 +88,12 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRecipeItem(at: indexPath)
+    }
+    
+    func tableView(_: UITableView, willDisplay _: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == presenter.numberOfRecipesItemsRows - 1 {
+            presenter.loadMoreRecipes()
+        }
     }
 }
 

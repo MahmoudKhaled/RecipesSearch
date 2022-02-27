@@ -19,4 +19,17 @@ class RecipesInteractor: RecipesInteractorInputProtocol {
             }
         }
     }
+    
+    func loadMore(with url: URL) {
+        recipesWorkers.loadMoreRecipes(with: url) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                let data = RecipesDataModel(response)
+                self.presenter?.didFetchMoreRecipes(data)
+            case .failure(let error):
+                self.presenter?.handleFetchedError(with: error)
+            }
+        }
+    }
 }

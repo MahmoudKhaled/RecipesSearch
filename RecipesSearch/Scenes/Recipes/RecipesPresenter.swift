@@ -11,6 +11,7 @@ class RecipesPresenter: RecipesPresenterProtocol {
     private var healthTypes: [HealthFilterType] = []
     private var apiParameters = RecipeParameters()
     private var isFirstSearch: Bool = true
+    private var resultData: RecipesDataModel = RecipesDataModel(nil)
     
     init(view: RecipesViewProtocol, interactor: RecipesInteractorInputProtocol, router: RecipesRouterProtocol) {
         self.view = view
@@ -47,12 +48,20 @@ extension RecipesPresenter {
 //        prformSearchRequest()
         search()
     }
+    
+    func loadMoreRecipes() {
+        guard resultData.hasPagination else { return }
+        if let nextURL = URL(string: resultData.nextPageLink) {
+            view?.showActivityIndicator(isUserInteractionEnabled: false)
+            interactor.loadMore(with: nextURL)
+        }
+    }
 }
 
 //MARK: implementation of RecipesPresenterProtocol
 extension RecipesPresenter {
     func search() {
-        guard isValidSeachWord() else { return }
+        guard isValidApiParameters() else { return }
         prformSearchRequest()
     }
     
@@ -97,10 +106,19 @@ extension RecipesPresenter {
 extension RecipesPresenter: RecipesInteractorOutputProtocol {
     func didFetchRecipesData(_ model: RecipesDataModel) {
         view?.hideActivityIndicator()
-        print(model.totalPages)
+        debugPrint(model.toPage, "to" , model.totalPages)
+        resultData = model
         recipes = model.recipes
         createHealthFilteredTypeItmes()
-        view?.reloadReciesData()
+        view?.reloadReciesData(scrollToTop: true)
+    }
+    
+    func didFetchMoreRecipes(_ model: RecipesDataModel) {
+        view?.hideActivityIndicator()
+        debugPrint(model.toPage, "to" , model.totalPages)
+        resultData = model
+        recipes.append(contentsOf: model.recipes)
+        view?.reloadReciesData(scrollToTop: false)
     }
     
     func handleFetchedError(with error: Error) {
