@@ -19,12 +19,20 @@ class RecipesViewController: BaseViewController, RecipesViewProtocol {
     }
     
     func reloadReciesData() {
+        /**
+            Handle empty data by add empty data view for tableView which it main container view for result data.
+         */
         recipesTableView.emptyMessage(info: presenter.isEmptyData ? EmptySearchData() : HideEmptyData())
         recipesTableView.reloadData()
     }
     
-    func reloadHealthFilterData() {
+    func reloadHealthFilterData(at selectedIndex: IndexPath?) {
         healthFilterCollectionView.reloadData()
+        /**
+         if selected index it will reload collection with default selection
+         */
+        guard let selectedIndex = selectedIndex else { return }
+        healthFilterCollectionView.customSelect(at: selectedIndex, position: .centeredHorizontally)
     }
 }
 
@@ -49,6 +57,7 @@ extension RecipesViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         presenter.didSelectHealthFilterItem(at: indexPath)
     }
 }
@@ -88,7 +97,7 @@ extension RecipesViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.searchButtonTapped()
+        presenter.search()
         self.view.endEditing(true)
     }
     

@@ -16,7 +16,7 @@ protocol RecipesPresenterProtocol: AnyObject {
     func didSelectHealthFilterItem(at indexPath: IndexPath)
     func didSelectRecipeItem(at indexPath: IndexPath)
     func updateApiParameters(at type: RecipeParametersType)
-    func searchButtonTapped()
+    func search()
     func wrongKeyBoardLetterTapped()
 }
 
@@ -33,5 +33,5 @@ protocol RecipesInteractorOutputProtocol: AnyObject {
 protocol RecipesViewProtocol: HasActivityIndicator {
     var presenter: RecipesPresenterProtocol! { get set }
     func reloadReciesData()
-    func reloadHealthFilterData()
+    func reloadHealthFilterData(at selectedIndex: IndexPath?)
 }

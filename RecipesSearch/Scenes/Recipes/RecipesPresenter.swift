@@ -10,6 +10,7 @@ class RecipesPresenter: RecipesPresenterProtocol {
     private var recipes: [RecipeModel] = []
     private var healthTypes: [HealthFilterType] = []
     private var apiParameters = RecipeParameters()
+    private var isFirstSearch: Bool = true
     
     init(view: RecipesViewProtocol, interactor: RecipesInteractorInputProtocol, router: RecipesRouterProtocol) {
         self.view = view
@@ -40,16 +41,17 @@ extension RecipesPresenter {
     
     func didSelectHealthFilterItem(at indexPath: IndexPath) {
         updateApiParameters(at: .healthType(healthTypes[indexPath.item]))
-        guard isValidSeachWord() else { return }
-        recipes.removeAll()
-        view?.reloadReciesData()
-        prformSearchRequest()
+//        guard isValidSeachWord() else { return }
+//        recipes.removeAll()
+//        view?.reloadReciesData()
+//        prformSearchRequest()
+        search()
     }
 }
 
 //MARK: implementation of RecipesPresenterProtocol
 extension RecipesPresenter {
-    func searchButtonTapped() {
+    func search() {
         guard isValidSeachWord() else { return }
         prformSearchRequest()
     }
@@ -67,7 +69,7 @@ extension RecipesPresenter {
         router.showAlert(with: Messages.wrongLetter.message)
     }
     
-    private func isValidSeachWord() -> Bool {
+    private func isValidApiParameters() -> Bool {
         guard !apiParameters.searchKey.isEmpty else {
             router.showAlert(with: Messages.emptySearchError.message)
             return false
@@ -80,8 +82,14 @@ extension RecipesPresenter {
         interactor.search(with: apiParameters)
     }
     
-    private func createHealthFilteredType() {
+    private func createHealthFilteredTypeItmes() {
+        guard isFirstSearch else { return }
         healthTypes = [.all, .lowSugar, .keto, .vegan]
+        /**
+         reload health type with first item as default Selection
+         */
+        view?.reloadHealthFilterData(at: IndexPath(item: 0, section: 0))
+        isFirstSearch = false
     }
 }
 
@@ -91,8 +99,7 @@ extension RecipesPresenter: RecipesInteractorOutputProtocol {
         view?.hideActivityIndicator()
         print(model.totalPages)
         recipes = model.recipes
-        createHealthFilteredType()
-        view?.reloadHealthFilterData()
+        createHealthFilteredTypeItmes()
         view?.reloadReciesData()
     }
     
