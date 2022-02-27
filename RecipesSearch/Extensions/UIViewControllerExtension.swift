@@ -2,7 +2,7 @@
 
 import UIKit
 
-// MARK:- InstanceViewController from stoaryBoard
+// MARK: - InstanceViewController from stoaryBoard
 public extension UIViewController
 {
     private static var nameOfVC: String
@@ -15,14 +15,14 @@ public extension UIViewController
         return (storyboard.instantiateViewController(withIdentifier: identifier) as? T)!
     }
     
-    private class func instance(_ storyboard: StoryBoardTypes = .main) -> Self
+    class func instance(_ storyboard: StoryBoardTypes = .main) -> Self
     {
         let stb = UIStoryboard(name: storyboard.rawValue, bundle: nil)
         return instate(stb, identifier: nameOfVC)
     }
 }
 
-// MARK:- Show default alert for app
+// MARK: - Show default alert for app
 public extension UIViewController {
     func showAlert(with message: String) {
         AlertBuilder(title: Messages.appName.message, message: message, preferredStyle: .alert)
@@ -32,7 +32,7 @@ public extension UIViewController {
     }
 }
 
-// MARK:- Navigation metthods and setup Main settings of it
+// MARK: - Navigation metthods and setup Main settings of it
 extension UIViewController {
     
     func hideBackButtonTitle() {
@@ -45,26 +45,5 @@ extension UIViewController {
     
     func pop(_ viewController: UIViewController) {
         navigationController?.popToViewController(viewController, animated: true)
-    }
-    
-}
-
-//MARK:- Extension for setup show and hide loading indicator
-extension UIViewController {    
-    //show and hide HUDProgress
-     func indicatorState(state: IndicatorState) {
-        switch state {
-        case .loading(let userInterAction, let hideView ):
-            if hideView {
-                let _ = view.subviews.map({$0.isHidden = true})
-            }
-            view.showActivityIndicator(isUserInteractionEnabled: userInterAction)
-            
-        case .loaded:
-            let _ = view.subviews.map({$0.isHidden = false})
-            view.hideActivityIndicator()
-        case .none:
-            break
-        }
     }
 }

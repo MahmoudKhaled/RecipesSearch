@@ -1,16 +1,15 @@
-//
+
 //  Messsage.swift
-//  NutritionAnalysis
-//
-//  Created by Mahmoud Khaled on 7/10/21.
-//
 
 import Foundation
 
-enum Messages {
+public enum Messages {
     case appName
     case ok
     case cancel
+    case emptySearchError
+    case wrongLetter
+    case noSearchResult
     
     var message: String {
         switch self {
@@ -20,6 +19,12 @@ enum Messages {
             return NSLocalizedString("Ok", comment: "")
         case .cancel:
             return NSLocalizedString("Cancel", comment: "")
+        case .emptySearchError:
+            return NSLocalizedString("Please enter your search word", comment: "")
+        case .wrongLetter:
+            return NSLocalizedString("Sorry Only english letters available, No special letters and numbers", comment: "")
+        case .noSearchResult:
+            return NSLocalizedString("No search Result", comment: "")
         }
     }
 }
