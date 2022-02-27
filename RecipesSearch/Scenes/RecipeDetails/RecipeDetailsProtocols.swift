@@ -13,6 +13,7 @@ protocol RecipeDetailsPresenterProtocol: AnyObject {
     func viewDidLoad()
     func configureIngredientCell(cell: AnyConfigurableCell<String>, at indexPath: IndexPath)
     func recipeWebSiteButtonTapped()
+    func shareRecipeButtonTapped()
 }
 
 protocol RecipeDetailsInteractorInputProtocol: AnyObject {

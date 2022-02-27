@@ -5,6 +5,7 @@ import SafariServices
 
 enum RecipeDetailsDestination {
     case recipeWebPage(_ url: URL)
+    case shareRecipe(_ url: URL)
 }
 
 class RecipeDetailsRouter: BaseRouter, RecipeDetailsRouterProtocol {
@@ -25,6 +26,8 @@ class RecipeDetailsRouter: BaseRouter, RecipeDetailsRouterProtocol {
         switch destination {
         case .recipeWebPage(let url):
             openRecipeWebPage(with: url)
+        case .shareRecipe(let url):
+            shareRecipe(url)
         }
     }
     
@@ -33,6 +36,11 @@ class RecipeDetailsRouter: BaseRouter, RecipeDetailsRouterProtocol {
         config.entersReaderIfAvailable = true
         let vc = SFSafariViewController(url: url, configuration: config)
         viewController?.present(vc, animated: true)
+    }
+    
+    private func shareRecipe(_ url: URL) {
+        let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        viewController?.present(activityController, animated: true)
     }
     
 }

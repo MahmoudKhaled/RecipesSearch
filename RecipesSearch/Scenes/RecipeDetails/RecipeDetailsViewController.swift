@@ -14,7 +14,16 @@ class RecipeDetailsViewController: BaseViewController, RecipeDetailsViewProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableViewList()
+        setupBarButtonItems()
         presenter.viewDidLoad()
+    }
+    
+    private func setupBarButtonItems() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
+    }
+    
+    @objc private func shareButtonTapped() {
+        presenter.shareRecipeButtonTapped()
     }
     
     func setRecipeData(with model: RecipeModel) {

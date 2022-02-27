@@ -35,6 +35,12 @@ extension RecipeDetailsPresenter {
             router.navigate(to: .recipeWebPage(url))
         }
     }
+    
+    func shareRecipeButtonTapped() {
+        if let url = URL(string: recipe.url) {
+            router.navigate(to: .shareRecipe(url))
+        }
+    }
 }
 
 extension RecipeDetailsPresenter: RecipeDetailsInteractorOutputProtocol {
