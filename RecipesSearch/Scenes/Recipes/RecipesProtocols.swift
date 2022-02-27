@@ -10,6 +10,7 @@ protocol RecipesPresenterProtocol: AnyObject {
     var view: RecipesViewProtocol? { get set }
     var numberOfRecipesItemsRows: Int { get }
     var numberOfHealthFilterItems: Int { get }
+    var isEmptyData: Bool { get }
     func configureRecipeCell(cell: AnyConfigurableCell<RecipeModel>, at indexPath: IndexPath)
     func configureHealthTypeCell(cell: AnyConfigurableCell<HealthFilterType>, at indexPath: IndexPath)
     func didSelectHealthFilterItem(at indexPath: IndexPath)

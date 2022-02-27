@@ -2,7 +2,7 @@
 
 import UIKit
 
-// MARK:- InstanceViewController from stoaryBoard
+// MARK: - InstanceViewController from stoaryBoard
 public extension UIViewController
 {
     private static var nameOfVC: String
@@ -22,7 +22,7 @@ public extension UIViewController
     }
 }
 
-// MARK:- Show default alert for app
+// MARK: - Show default alert for app
 public extension UIViewController {
     func showAlert(with message: String) {
         AlertBuilder(title: Messages.appName.message, message: message, preferredStyle: .alert)
@@ -32,7 +32,7 @@ public extension UIViewController {
     }
 }
 
-// MARK:- Navigation metthods and setup Main settings of it
+// MARK: - Navigation metthods and setup Main settings of it
 extension UIViewController {
     
     func hideBackButtonTitle() {
@@ -49,7 +49,7 @@ extension UIViewController {
     
 }
 
-//MARK:- Extension for setup show and hide loading indicator
+//MARK: - Extension for setup show and hide loading indicator
 extension UIViewController {    
     //show and hide HUDProgress
      func indicatorState(state: IndicatorState) {
@@ -65,6 +65,28 @@ extension UIViewController {
             view.hideActivityIndicator()
         case .none:
             break
+        }
+    }
+}
+
+
+extension UIViewController {
+    func addChildController(_ containerView: UIView?, child: UIViewController?) {
+        guard let child = child else {
+            return
+        }
+        let _view: UIView = containerView ?? view
+        addChild(child)
+        child.view.frame = _view.bounds
+        _view.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
+
+    func removeChild() {
+        children.forEach {
+            $0.willMove(toParent: nil)
+            $0.view.removeFromSuperview()
+            $0.removeFromParent()
         }
     }
 }

@@ -63,6 +63,7 @@
 		57F1091227CAF16300F8D0AA /* ScreenTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1091127CAF16300F8D0AA /* ScreenTitles.swift */; };
 		57F1091427CAF59D00F8D0AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F1091327CAF59D00F8D0AA /* WebKit.framework */; };
 		57F1091627CBAFB100F8D0AA /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1091527CBAFB100F8D0AA /* Regex.swift */; };
+		57F1091827CBBA6500F8D0AA /* EmptyViewDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1091727CBBA6500F8D0AA /* EmptyViewDataSourceProtocol.swift */; };
 		FEC372D30866F6DEB5A60387 /* Pods_RecipesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C96DD497BAFF6F7D6FA27B1 /* Pods_RecipesSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		57F1091127CAF16300F8D0AA /* ScreenTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTitles.swift; sourceTree = "<group>"; };
 		57F1091327CAF59D00F8D0AA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		57F1091527CBAFB100F8D0AA /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		57F1091727CBBA6500F8D0AA /* EmptyViewDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewDataSourceProtocol.swift; sourceTree = "<group>"; };
 		C78772831B86B89D9C3D2565 /* Pods-RecipesSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesSearch.release.xcconfig"; path = "Target Support Files/Pods-RecipesSearch/Pods-RecipesSearch.release.xcconfig"; sourceTree = "<group>"; };
 		DC48F795CA664C71D564B095 /* Pods-RecipesSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesSearch.debug.xcconfig"; path = "Target Support Files/Pods-RecipesSearch/Pods-RecipesSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,6 +254,7 @@
 				5758AD0A27C91E4000B68B5E /* AlertBuilder.swift */,
 				5758AD0827C91E3A00B68B5E /* BodyParameters.swift */,
 				5758ACF327C91C3E00B68B5E /* Constants.swift */,
+				57F1091727CBBA6500F8D0AA /* EmptyViewDataSourceProtocol.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				57F1091627CBAFB100F8D0AA /* Regex.swift in Sources */,
 				5758AD0527C91D1000B68B5E /* Future.swift in Sources */,
 				5758AD0727C91D1000B68B5E /* RequestExtension.swift in Sources */,
+				57F1091827CBBA6500F8D0AA /* EmptyViewDataSourceProtocol.swift in Sources */,
 				57F1090727CADF2100F8D0AA /* RecipeDetailsRouter.swift in Sources */,
 				5758AD1727C9233600B68B5E /* IndicatorType.swift in Sources */,
 				5758AD4B27CA6D5D00B68B5E /* ConfigurableCell.swift in Sources */,

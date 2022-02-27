@@ -19,6 +19,7 @@ class RecipesViewController: BaseViewController, RecipesViewProtocol {
     }
     
     func reloadReciesData() {
+        recipesTableView.emptyMessage(info: presenter.isEmptyData ? EmptySearchData() : HideEmptyData())
         recipesTableView.reloadData()
     }
     

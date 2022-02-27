@@ -24,6 +24,8 @@ extension RecipesPresenter {
     
     var numberOfHealthFilterItems: Int { return healthTypes.count}
     
+    var isEmptyData: Bool { return recipes.isEmpty }
+    
     func configureRecipeCell(cell: AnyConfigurableCell<RecipeModel>, at indexPath: IndexPath) {
         cell.configure(model: recipes[indexPath.row])
     }
