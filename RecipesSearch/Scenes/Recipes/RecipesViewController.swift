@@ -95,9 +95,12 @@ extension RecipesViewController: UISearchBarDelegate {
         presenter.updateApiParameters(at: .searchKey(searchText))
     }
     
+    /**
+        Make sure that only english letters and spaces are acceptable from  keyboard in searchBar.
+     */
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         do {
-            let regex = try NSRegularExpression(pattern: #"^[a-zA-Z ]{0,}$"#, options: [])
+            let regex = try NSRegularExpression(pattern: Regex.searchKeys.rawValue, options: [])
             if regex.firstMatch(in: text, options: [], range: NSMakeRange(0, text.count)) != nil {
                 return true
             }
