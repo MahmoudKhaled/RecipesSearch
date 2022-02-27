@@ -49,7 +49,6 @@ extension RecipesPresenter {
 
 //MARK: implementation of RecipesPresenterProtocol
 extension RecipesPresenter {
-    
     func searchButtonTapped() {
         guard isValidSeachWord() else { return }
         prformSearchRequest()
@@ -91,7 +90,7 @@ extension RecipesPresenter: RecipesInteractorOutputProtocol {
     func didFetchRecipesData(_ model: RecipesDataModel) {
         view?.hideActivityIndicator()
         print(model.totalPages)
-        recipes.append(contentsOf: model.recipes)
+        recipes = model.recipes
         createHealthFilteredType()
         view?.reloadHealthFilterData()
         view?.reloadReciesData()
