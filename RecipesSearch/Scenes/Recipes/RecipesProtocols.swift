@@ -16,22 +16,25 @@ protocol RecipesPresenterProtocol: AnyObject {
     func didSelectHealthFilterItem(at indexPath: IndexPath)
     func didSelectRecipeItem(at indexPath: IndexPath)
     func updateApiParameters(at type: RecipeParametersType)
-    func searchButtonTapped()
+    func search()
     func wrongKeyBoardLetterTapped()
+    func loadMoreRecipes()
 }
 
 protocol RecipesInteractorInputProtocol: AnyObject {
     var presenter: RecipesInteractorOutputProtocol? { get set }
     func search(with parameters: BodyParameters)
+    func loadMore(with url: URL)
 }
 
 protocol RecipesInteractorOutputProtocol: AnyObject {
     func didFetchRecipesData(_ model: RecipesDataModel)
+    func didFetchMoreRecipes(_ model: RecipesDataModel)
     func handleFetchedError(with error: Error)
 }
 
 protocol RecipesViewProtocol: HasActivityIndicator {
     var presenter: RecipesPresenterProtocol! { get set }
-    func reloadReciesData()
-    func reloadHealthFilterData()
+    func reloadReciesData(scrollToTop: Bool)
+    func reloadHealthFilterData(at selectedIndex: IndexPath?)
 }

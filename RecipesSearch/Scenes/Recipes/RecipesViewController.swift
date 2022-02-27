@@ -18,13 +18,24 @@ class RecipesViewController: BaseViewController, RecipesViewProtocol {
         setupTableViewList()
     }
     
-    func reloadReciesData() {
+    func reloadReciesData(scrollToTop: Bool) {
+        /**
+            Handle empty data by add empty data view for tableView which it main container view for result data.
+         */
         recipesTableView.emptyMessage(info: presenter.isEmptyData ? EmptySearchData() : HideEmptyData())
         recipesTableView.reloadData()
+        if scrollToTop, !presenter.isEmptyData {
+            recipesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
     
-    func reloadHealthFilterData() {
+    func reloadHealthFilterData(at selectedIndex: IndexPath?) {
         healthFilterCollectionView.reloadData()
+        /**
+         if selected index it will reload collection with default selection
+         */
+        guard let selectedIndex = selectedIndex else { return }
+        healthFilterCollectionView.customSelect(at: selectedIndex, position: .centeredHorizontally)
     }
 }
 
@@ -49,6 +60,7 @@ extension RecipesViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         presenter.didSelectHealthFilterItem(at: indexPath)
     }
 }
@@ -77,6 +89,12 @@ extension RecipesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRecipeItem(at: indexPath)
     }
+    
+    func tableView(_: UITableView, willDisplay _: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == presenter.numberOfRecipesItemsRows - 1 {
+            presenter.loadMoreRecipes()
+        }
+    }
 }
 
 
@@ -88,7 +106,7 @@ extension RecipesViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.searchButtonTapped()
+        presenter.search()
         self.view.endEditing(true)
     }
     

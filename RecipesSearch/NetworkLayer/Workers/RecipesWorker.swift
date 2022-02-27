@@ -14,4 +14,12 @@ class RecipesWorker {
             completionHandler(.failure(error))
         }
     }
+    
+    func loadMoreRecipes(with url: URL, completionHandler: @escaping (Result<RecipesDataResponse, Error>)-> Void) {
+        do {
+            try networkHandler.request(RecipesAPI.loadMoreRecipes(url: url)).decoded(toType: RecipesDataResponse.self).observe(with: completionHandler)
+        } catch {
+            completionHandler(.failure(error))
+        }
+    }
 }

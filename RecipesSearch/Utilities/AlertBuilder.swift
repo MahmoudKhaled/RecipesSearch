@@ -61,9 +61,16 @@ final class AlertBuilder {
 
 public extension UIAlertController {
     func show(animated: Bool = true, completionHandler: (() -> ())? = nil) {
-        guard let rootVC = UIApplication.shared.keyWindow?.rootViewController else {
-            return
+        var rootVC: UIViewController?
+        
+        if #available(iOS 13, *) {
+            let keyWindow = UIApplication.shared.windows.filter({$0.isKeyWindow}).first
+            rootVC = keyWindow?.rootViewController
+        } else {
+            rootVC =  UIApplication.shared.keyWindow?.rootViewController
         }
+        guard let rootVC = rootVC else { return }
+
         var forefrontVC = rootVC
         while let presentedVC = forefrontVC.presentedViewController {
             forefrontVC = presentedVC

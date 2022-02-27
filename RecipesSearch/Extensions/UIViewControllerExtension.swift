@@ -46,47 +46,4 @@ extension UIViewController {
     func pop(_ viewController: UIViewController) {
         navigationController?.popToViewController(viewController, animated: true)
     }
-    
-}
-
-//MARK: - Extension for setup show and hide loading indicator
-extension UIViewController {    
-    //show and hide HUDProgress
-     func indicatorState(state: IndicatorState) {
-        switch state {
-        case .loading(let userInterAction, let hideView ):
-            if hideView {
-                let _ = view.subviews.map({$0.isHidden = true})
-            }
-            view.showActivityIndicator(isUserInteractionEnabled: userInterAction)
-            
-        case .loaded:
-            let _ = view.subviews.map({$0.isHidden = false})
-            view.hideActivityIndicator()
-        case .none:
-            break
-        }
-    }
-}
-
-
-extension UIViewController {
-    func addChildController(_ containerView: UIView?, child: UIViewController?) {
-        guard let child = child else {
-            return
-        }
-        let _view: UIView = containerView ?? view
-        addChild(child)
-        child.view.frame = _view.bounds
-        _view.addSubview(child.view)
-        child.didMove(toParent: self)
-    }
-
-    func removeChild() {
-        children.forEach {
-            $0.willMove(toParent: nil)
-            $0.view.removeFromSuperview()
-            $0.removeFromParent()
-        }
-    }
 }
