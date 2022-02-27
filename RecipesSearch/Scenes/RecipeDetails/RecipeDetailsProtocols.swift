@@ -4,7 +4,7 @@
 import Foundation
 
 protocol RecipeDetailsRouterProtocol: BaseRouterProtocol {
-    
+    func navigate(to destination: RecipeDetailsDestination)
 }
 
 protocol RecipeDetailsPresenterProtocol: AnyObject {
@@ -12,6 +12,7 @@ protocol RecipeDetailsPresenterProtocol: AnyObject {
     var numberOfIngredientItemsRows: Int { get }
     func viewDidLoad()
     func configureIngredientCell(cell: AnyConfigurableCell<String>, at indexPath: IndexPath)
+    func recipeWebSiteButtonTapped()
 }
 
 protocol RecipeDetailsInteractorInputProtocol: AnyObject {

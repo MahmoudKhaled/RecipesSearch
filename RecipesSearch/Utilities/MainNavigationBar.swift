@@ -19,8 +19,13 @@ final class MainNavigationController: UINavigationController {
                 .foregroundColor: UIColor.black
             ]
             appearance.shadowImage = UIImage()
-            navigationBar.standardAppearance = appearance
-            navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+//            navigationBar.standardAppearance = appearance
+//            navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+            let proxy = UINavigationBar.appearance()
+                proxy.tintColor = .black
+                proxy.standardAppearance = appearance
+                proxy.scrollEdgeAppearance = appearance
+            
         } else {
             
             navigationBar.titleTextAttributes = [

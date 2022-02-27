@@ -31,7 +31,7 @@ class RecipeDetailsViewController: BaseViewController, RecipeDetailsViewProtocol
 
 extension RecipeDetailsViewController {
     @IBAction func recipeWebsiteTapped(_ sender: UIButton) {
-        
+        presenter.recipeWebSiteButtonTapped()
     }
 }
 

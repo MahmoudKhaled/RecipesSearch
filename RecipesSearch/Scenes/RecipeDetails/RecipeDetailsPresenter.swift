@@ -29,6 +29,12 @@ extension RecipeDetailsPresenter {
     func configureIngredientCell(cell: AnyConfigurableCell<String>, at indexPath: IndexPath) {
         cell.configure(model: recipe.ingredientLines[indexPath.row])
     }
+    
+    func recipeWebSiteButtonTapped() {
+        if let url = URL(string: recipe.url) {
+            router.navigate(to: .recipeWebPage(url))
+        }
+    }
 }
 
 extension RecipeDetailsPresenter: RecipeDetailsInteractorOutputProtocol {

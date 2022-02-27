@@ -1,6 +1,11 @@
 //  RecipeDetailsRouter.swift
 
 import UIKit
+import SafariServices
+
+enum RecipeDetailsDestination {
+    case recipeWebPage(_ url: URL)
+}
 
 class RecipeDetailsRouter: BaseRouter, RecipeDetailsRouterProtocol {
     
@@ -14,6 +19,20 @@ class RecipeDetailsRouter: BaseRouter, RecipeDetailsRouterProtocol {
         view.presenter = presenter
         view.title = ScreenTitles.recipeDetails.title
         return view
+    }
+    
+    func navigate(to destination: RecipeDetailsDestination) {
+        switch destination {
+        case .recipeWebPage(let url):
+            openRecipeWebPage(with: url)
+        }
+    }
+    
+    private func openRecipeWebPage(with url: URL) {
+        let config = SFSafariViewController.Configuration()
+        config.entersReaderIfAvailable = true
+        let vc = SFSafariViewController(url: url, configuration: config)
+        viewController?.present(vc, animated: true)
     }
     
 }

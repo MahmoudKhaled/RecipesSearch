@@ -61,6 +61,7 @@
 		57F1090F27CAEAE400F8D0AA /* IngredientsUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1090D27CAEAE400F8D0AA /* IngredientsUITableViewCell.swift */; };
 		57F1091027CAEAE400F8D0AA /* IngredientsUITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57F1090E27CAEAE400F8D0AA /* IngredientsUITableViewCell.xib */; };
 		57F1091227CAF16300F8D0AA /* ScreenTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F1091127CAF16300F8D0AA /* ScreenTitles.swift */; };
+		57F1091427CAF59D00F8D0AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F1091327CAF59D00F8D0AA /* WebKit.framework */; };
 		FEC372D30866F6DEB5A60387 /* Pods_RecipesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C96DD497BAFF6F7D6FA27B1 /* Pods_RecipesSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		57F1090D27CAEAE400F8D0AA /* IngredientsUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsUITableViewCell.swift; sourceTree = "<group>"; };
 		57F1090E27CAEAE400F8D0AA /* IngredientsUITableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientsUITableViewCell.xib; sourceTree = "<group>"; };
 		57F1091127CAF16300F8D0AA /* ScreenTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTitles.swift; sourceTree = "<group>"; };
+		57F1091327CAF59D00F8D0AA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C78772831B86B89D9C3D2565 /* Pods-RecipesSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesSearch.release.xcconfig"; path = "Target Support Files/Pods-RecipesSearch/Pods-RecipesSearch.release.xcconfig"; sourceTree = "<group>"; };
 		DC48F795CA664C71D564B095 /* Pods-RecipesSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesSearch.debug.xcconfig"; path = "Target Support Files/Pods-RecipesSearch/Pods-RecipesSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F1091427CAF59D00F8D0AA /* WebKit.framework in Frameworks */,
 				FEC372D30866F6DEB5A60387 /* Pods_RecipesSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +144,7 @@
 		3E72FEEE071C93E8DCCC5E38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57F1091327CAF59D00F8D0AA /* WebKit.framework */,
 				0C96DD497BAFF6F7D6FA27B1 /* Pods_RecipesSearch.framework */,
 			);
 			name = Frameworks;
