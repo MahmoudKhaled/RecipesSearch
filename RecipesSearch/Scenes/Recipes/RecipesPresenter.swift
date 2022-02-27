@@ -33,7 +33,7 @@ extension RecipesPresenter {
     }
     
     func didSelectRecipeItem(at indexPath: IndexPath) {
-        //TODO: - navigate to recipeDetails
+        router.navigate(to: .recipeDetails(recipes[indexPath.row]))
     }
     
     func didSelectHealthFilterItem(at indexPath: IndexPath) {
