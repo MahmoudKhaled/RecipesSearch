@@ -2,7 +2,7 @@
 
 import UIKit
 
-class RecipesViewController: BaseViewController, RecipesViewProtocol {
+final class RecipesViewController: BaseViewController, RecipesViewProtocol {
     
     //MARK: - outlets
     @IBOutlet private weak var searchBar: UISearchBar!

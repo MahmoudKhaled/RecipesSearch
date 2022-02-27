@@ -3,12 +3,12 @@
 
 import Foundation
 
-enum RecipeParametersType {
+public enum RecipeParametersType {
     case searchKey(String)
     case healthType(HealthFilterType)
 }
 
-struct RecipeParameters: BodyParameters {
+public struct RecipeParameters: BodyParameters {
     
     var appId: String = Constants.appId
     var appKey: String = Constants.appKey
@@ -16,7 +16,7 @@ struct RecipeParameters: BodyParameters {
     var helathType: HealthFilterType = .all
     var type: String = "public"
     
-    var body: [String : Any] {
+    public var body: [String : Any] {
         var body = ["type": type,
                     "q": searchKey,
                     "app_id": appId,

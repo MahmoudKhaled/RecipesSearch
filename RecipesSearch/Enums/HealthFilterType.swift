@@ -3,7 +3,7 @@
 
 import Foundation
 
-enum HealthFilterType {
+public enum HealthFilterType {
 
     case all
     case lowSugar

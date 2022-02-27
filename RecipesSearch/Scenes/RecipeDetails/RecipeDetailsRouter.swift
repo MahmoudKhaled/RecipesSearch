@@ -8,7 +8,7 @@ enum RecipeDetailsDestination {
     case shareRecipe(_ url: URL)
 }
 
-class RecipeDetailsRouter: BaseRouter, RecipeDetailsRouterProtocol {
+final class RecipeDetailsRouter: BaseRouter, RecipeDetailsRouterProtocol {
     
     static func createModule(recipe: RecipeModel) -> UIViewController {
         let view = RecipeDetailsViewController.instance()

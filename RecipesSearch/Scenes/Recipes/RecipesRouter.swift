@@ -6,7 +6,7 @@ enum RecipesDestination {
     case recipeDetails(RecipeModel)
 }
 
-class RecipesRouter: BaseRouter, RecipesRouterProtocol {
+final class RecipesRouter: BaseRouter, RecipesRouterProtocol {
     
     static func createModule() -> UIViewController {
         let view = RecipesViewController.instance()

@@ -2,7 +2,7 @@
 
 import UIKit
 
-class RecipesInteractor: RecipesInteractorInputProtocol {
+final class RecipesInteractor: RecipesInteractorInputProtocol {
     
     weak var presenter: RecipesInteractorOutputProtocol?
     private let recipesWorkers = RecipesWorker()

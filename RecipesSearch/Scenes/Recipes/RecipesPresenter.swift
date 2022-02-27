@@ -2,7 +2,7 @@
 
 import Foundation
 
-class RecipesPresenter: RecipesPresenterProtocol {
+final class RecipesPresenter: RecipesPresenterProtocol {
     
     weak var view: RecipesViewProtocol?
     private let interactor: RecipesInteractorInputProtocol

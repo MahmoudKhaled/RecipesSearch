@@ -1,13 +1,9 @@
-//
+
 //  Messsage.swift
-//  NutritionAnalysis
-//
-//  Created by Mahmoud Khaled on 7/10/21.
-//
 
 import Foundation
 
-enum Messages {
+public enum Messages {
     case appName
     case ok
     case cancel

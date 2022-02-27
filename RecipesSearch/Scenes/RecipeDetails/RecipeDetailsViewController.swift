@@ -3,7 +3,7 @@
 
 import UIKit
 
-class RecipeDetailsViewController: BaseViewController, RecipeDetailsViewProtocol {
+final class RecipeDetailsViewController: BaseViewController, RecipeDetailsViewProtocol {
     
     @IBOutlet private weak var recipeImageView: UIImageView!
     @IBOutlet private weak var recipeTitleLabel: UILabel!

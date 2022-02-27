@@ -2,7 +2,7 @@
 
 import UIKit
 
-class HealthTypeCollectionViewCell: UICollectionViewCell, ConfigurableCell {
+final class HealthTypeCollectionViewCell: UICollectionViewCell, ConfigurableCell {
     
     @IBOutlet private weak var healthTypeTitleLabel: UILabel!
     
@@ -14,7 +14,6 @@ class HealthTypeCollectionViewCell: UICollectionViewCell, ConfigurableCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func configure(model: HealthFilterType) {

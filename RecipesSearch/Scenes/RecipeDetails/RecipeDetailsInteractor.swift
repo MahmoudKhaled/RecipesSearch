@@ -3,7 +3,7 @@
 
 import UIKit
 
-class RecipeDetailsInteractor: RecipeDetailsInteractorInputProtocol {
+final class RecipeDetailsInteractor: RecipeDetailsInteractorInputProtocol {
     
     weak var presenter: RecipeDetailsInteractorOutputProtocol?
 }

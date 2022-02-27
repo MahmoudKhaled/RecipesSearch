@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum ScreenTitles {
+public enum ScreenTitles {
     case recipesSearch
     case recipeDetails
     
