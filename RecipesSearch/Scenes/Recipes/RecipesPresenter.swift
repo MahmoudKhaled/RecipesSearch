@@ -42,10 +42,6 @@ extension RecipesPresenter {
     
     func didSelectHealthFilterItem(at indexPath: IndexPath) {
         updateApiParameters(at: .healthType(healthTypes[indexPath.item]))
-//        guard isValidSeachWord() else { return }
-//        recipes.removeAll()
-//        view?.reloadReciesData()
-//        prformSearchRequest()
         search()
     }
     
